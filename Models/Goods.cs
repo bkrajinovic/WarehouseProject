@@ -24,5 +24,8 @@ namespace Warehouse.Models
 
         public int? WarehouseId { get; set;}
         public Warehouse Warehouse { get; set;}
+
+        public int? PositionId { get; set;}
+        public Position Position { get; set;}
     }
 }

@@ -23,14 +23,14 @@ namespace Warehouse.Controllers
         public async Task<ActionResult<IEnumerable<Models.Warehouse>>> GetWarehouses()
         {
             
-            return await _context.Warehouses.ToListAsync();
+            return await  _context.Warehouses.Include(w => w.City).ToListAsync();
         }
         
 
 [HttpGet("{id}")]
 public async Task<ActionResult<Warehouse.Models.Warehouse>> GetWarehouse(int id)
 {
-    var Warehouse = await _context.Warehouses.FindAsync(id);
+    var Warehouse = await _context.Warehouses.Include(w => w.City).FirstAsync(a => a.Id == id);
 
     if (Warehouse == null)
     {

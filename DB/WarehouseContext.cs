@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -46,7 +47,21 @@ namespace Warehouse
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();
+
+{
+
+    var cascadeFKs = modelBuilder.Model.GetEntityTypes()
+        .SelectMany(t => t.GetForeignKeys())
+        .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);
+
+    foreach (var fk in cascadeFKs)
+        fk.DeleteBehavior = DeleteBehavior.Restrict;
+
+    base.OnModelCreating(modelBuilder);
+}
         }
+
+        
 
     }
 }

@@ -15,7 +15,7 @@ namespace Warehouse.Models
         public string LastName { get; set;} 
         
         [Required(ErrorMessage="Ovo polje je obavezno")]
-         public int WarehouseId { get; set;}
+        public int WarehouseId { get; set;}
         public Warehouse Warehouse { get; set;}
     }
 }

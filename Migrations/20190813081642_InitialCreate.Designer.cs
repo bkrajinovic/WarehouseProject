@@ -10,8 +10,8 @@ using Warehouse;
 namespace Warehouse.Migrations
 {
     [DbContext(typeof(WarehouseContext))]
-    [Migration("20190727100251_InitialCreate2")]
-    partial class InitialCreate2
+    [Migration("20190813081642_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,29 @@ namespace Warehouse.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cities");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 562, DateTimeKind.Utc).AddTicks(6935),
+                            Name = "Velika Gorica",
+                            Zip = "10410"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 562, DateTimeKind.Utc).AddTicks(9004),
+                            Name = "Zagreb",
+                            Zip = "10000"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 562, DateTimeKind.Utc).AddTicks(9028),
+                            Name = "Split",
+                            Zip = "21000"
+                        });
                 });
 
             modelBuilder.Entity("Warehouse.Models.Employee", b =>
@@ -67,6 +90,24 @@ namespace Warehouse.Migrations
                     b.HasIndex("WarehouseId");
 
                     b.ToTable("Employees");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 563, DateTimeKind.Utc).AddTicks(7542),
+                            FirstName = "Antonio",
+                            LastName = "Samardzic",
+                            WarehouseId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 563, DateTimeKind.Utc).AddTicks(9389),
+                            FirstName = "Bruno",
+                            LastName = "Krajinovic",
+                            WarehouseId = 2
+                        });
                 });
 
             modelBuilder.Entity("Warehouse.Models.Goods", b =>
@@ -89,6 +130,8 @@ namespace Warehouse.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
+                    b.Property<int?>("PositionId");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(10, 2)");
 
@@ -102,9 +145,39 @@ namespace Warehouse.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PositionId");
+
                     b.HasIndex("WarehouseId");
 
                     b.ToTable("Goods");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 565, DateTimeKind.Utc).AddTicks(1354),
+                            CurrentAmount = 1554,
+                            DateOfManufacture = new DateTime(2019, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpirationDate = new DateTime(2020, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MinimalAmount = 1345,
+                            Name = "Cake",
+                            Price = 12.99m,
+                            UnitOfMeasure = "pcs",
+                            WarehouseId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 566, DateTimeKind.Utc).AddTicks(4920),
+                            CurrentAmount = 1554,
+                            DateOfManufacture = new DateTime(2019, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpirationDate = new DateTime(2020, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MinimalAmount = 1345,
+                            Name = "Milk",
+                            Price = 4.99m,
+                            UnitOfMeasure = "l",
+                            WarehouseId = 2
+                        });
                 });
 
             modelBuilder.Entity("Warehouse.Models.Position", b =>
@@ -115,21 +188,39 @@ namespace Warehouse.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<int>("GoodsId");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<string>("PositionOnShelf");
+                    b.Property<string>("PositionOnShelf")
+                        .IsRequired();
 
-                    b.Property<string>("Shelf");
+                    b.Property<string>("Shelf")
+                        .IsRequired();
 
                     b.Property<DateTime?>("UpdatedAt");
 
                     b.HasKey("Id");
 
                     b.ToTable("Positions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 567, DateTimeKind.Utc).AddTicks(1601),
+                            Name = "Cake",
+                            PositionOnShelf = "1",
+                            Shelf = "D"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 567, DateTimeKind.Utc).AddTicks(3346),
+                            Name = "Milk",
+                            PositionOnShelf = "1",
+                            Shelf = "A"
+                        });
                 });
 
             modelBuilder.Entity("Warehouse.Models.Warehouse", b =>
@@ -157,6 +248,32 @@ namespace Warehouse.Migrations
                     b.HasIndex("CityId");
 
                     b.ToTable("Warehouses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CityId = 1,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 568, DateTimeKind.Utc).AddTicks(37),
+                            Name = "Dukat",
+                            Street = "Ilica 34"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CityId = 2,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 568, DateTimeKind.Utc).AddTicks(1801),
+                            Name = "Podravka",
+                            Street = "Kurilovecka 5"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CityId = 3,
+                            CreatedAt = new DateTime(2019, 8, 13, 8, 16, 41, 568, DateTimeKind.Utc).AddTicks(1825),
+                            Name = "Kras",
+                            Street = "Splitska 23"
+                        });
                 });
 
             modelBuilder.Entity("Warehouse.Models.Employee", b =>
@@ -164,15 +281,19 @@ namespace Warehouse.Migrations
                     b.HasOne("Warehouse.Models.Warehouse", "Warehouse")
                         .WithMany()
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Warehouse.Models.Goods", b =>
                 {
+                    b.HasOne("Warehouse.Models.Position", "Position")
+                        .WithMany()
+                        .HasForeignKey("PositionId");
+
                     b.HasOne("Warehouse.Models.Warehouse", "Warehouse")
                         .WithMany()
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Warehouse.Models.Warehouse", b =>
@@ -180,7 +301,7 @@ namespace Warehouse.Migrations
                     b.HasOne("Warehouse.Models.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }
