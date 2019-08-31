@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Warehouse;
 
 namespace Warehouse.Migrations
 {
     [DbContext(typeof(WarehouseContext))]
-    partial class WarehouseContextModelSnapshot : ModelSnapshot
+    [Migration("20190826095841_InitialCreate3")]
+    partial class InitialCreate3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -144,12 +146,6 @@ namespace Warehouse.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired();
-
-                    b.Property<string>("LastName")
-                        .IsRequired();
-
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -210,25 +206,25 @@ namespace Warehouse.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 185, DateTimeKind.Utc).AddTicks(5161),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 902, DateTimeKind.Utc).AddTicks(695),
                             Name = "Velika Gorica",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 185, DateTimeKind.Utc).AddTicks(5161),
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 902, DateTimeKind.Utc).AddTicks(696),
                             Zip = "10410"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 185, DateTimeKind.Utc).AddTicks(6030),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 902, DateTimeKind.Utc).AddTicks(3955),
                             Name = "Zagreb",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 185, DateTimeKind.Utc).AddTicks(6031),
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 902, DateTimeKind.Utc).AddTicks(3956),
                             Zip = "10000"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 185, DateTimeKind.Utc).AddTicks(6040),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 902, DateTimeKind.Utc).AddTicks(3989),
                             Name = "Split",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 185, DateTimeKind.Utc).AddTicks(6040),
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 902, DateTimeKind.Utc).AddTicks(3990),
                             Zip = "21000"
                         });
                 });
@@ -263,19 +259,19 @@ namespace Warehouse.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 185, DateTimeKind.Utc).AddTicks(9659),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 903, DateTimeKind.Utc).AddTicks(6484),
                             FirstName = "Antonio",
                             LastName = "Samardzic",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 185, DateTimeKind.Utc).AddTicks(9659),
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 903, DateTimeKind.Utc).AddTicks(6486),
                             WarehouseId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 186, DateTimeKind.Utc).AddTicks(466),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 903, DateTimeKind.Utc).AddTicks(9177),
                             FirstName = "Bruno",
                             LastName = "Krajinovic",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 186, DateTimeKind.Utc).AddTicks(466),
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 903, DateTimeKind.Utc).AddTicks(9178),
                             WarehouseId = 2
                         });
                 });
@@ -325,7 +321,7 @@ namespace Warehouse.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 186, DateTimeKind.Utc).AddTicks(5354),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 905, DateTimeKind.Utc).AddTicks(5346),
                             CurrentAmount = 1554,
                             DateOfManufacture = new DateTime(2019, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpirationDate = new DateTime(2020, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -333,13 +329,13 @@ namespace Warehouse.Migrations
                             Name = "Cake",
                             Price = 12.99m,
                             UnitOfMeasure = "pcs",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 186, DateTimeKind.Utc).AddTicks(5354),
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 905, DateTimeKind.Utc).AddTicks(5348),
                             WarehouseId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(1235),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 911, DateTimeKind.Utc).AddTicks(4102),
                             CurrentAmount = 1554,
                             DateOfManufacture = new DateTime(2019, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpirationDate = new DateTime(2020, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -347,7 +343,7 @@ namespace Warehouse.Migrations
                             Name = "Milk",
                             Price = 4.99m,
                             UnitOfMeasure = "l",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(1235),
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 911, DateTimeKind.Utc).AddTicks(4103),
                             WarehouseId = 2
                         });
                 });
@@ -380,20 +376,20 @@ namespace Warehouse.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(3885),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 912, DateTimeKind.Utc).AddTicks(5005),
                             Name = "Cake",
                             PositionOnShelf = "1",
                             Shelf = "D",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(3885)
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 912, DateTimeKind.Utc).AddTicks(5006)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(4575),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 912, DateTimeKind.Utc).AddTicks(7490),
                             Name = "Milk",
                             PositionOnShelf = "1",
                             Shelf = "A",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(4576)
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 912, DateTimeKind.Utc).AddTicks(7491)
                         });
                 });
 
@@ -428,28 +424,28 @@ namespace Warehouse.Migrations
                         {
                             Id = 1,
                             CityId = 1,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(7525),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 913, DateTimeKind.Utc).AddTicks(7502),
                             Name = "Dukat",
                             Street = "Ilica 34",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(7526)
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 913, DateTimeKind.Utc).AddTicks(7503)
                         },
                         new
                         {
                             Id = 2,
                             CityId = 2,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(8269),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 914, DateTimeKind.Utc).AddTicks(285),
                             Name = "Podravka",
                             Street = "Kurilovecka 5",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(8269)
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 914, DateTimeKind.Utc).AddTicks(286)
                         },
                         new
                         {
                             Id = 3,
                             CityId = 3,
-                            CreatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(8279),
+                            CreatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 914, DateTimeKind.Utc).AddTicks(321),
                             Name = "Kras",
                             Street = "Splitska 23",
-                            UpdatedAt = new DateTime(2019, 8, 28, 10, 46, 23, 187, DateTimeKind.Utc).AddTicks(8280)
+                            UpdatedAt = new DateTime(2019, 8, 26, 9, 58, 40, 914, DateTimeKind.Utc).AddTicks(322)
                         });
                 });
 

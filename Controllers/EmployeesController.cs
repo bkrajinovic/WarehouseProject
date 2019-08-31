@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Warehouse.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Warehouse.Controllers
 {
@@ -20,6 +21,7 @@ namespace Warehouse.Controllers
            _context = context;
 
         }
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
         {
